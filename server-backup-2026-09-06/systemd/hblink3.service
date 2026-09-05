@@ -1,0 +1,15 @@
+[Unit]
+Description=HBLink3 DMR Master
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/hblink3
+ExecStart=/opt/hblink3/venv/bin/python /opt/hblink3/hblink.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
