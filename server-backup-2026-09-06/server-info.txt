@@ -1,0 +1,67 @@
+HBLink3 Live Server Baseline
+============================
+Snapshot date: 2026-09-06
+
+HOST
+----
+Hostname: hblink.mim.id
+OS: Ubuntu 24.04.4 LTS
+Kernel: 6.8.0-138-generic
+Architecture: x86-64
+Virtualization: KVM
+Hardware vendor: Red Hat
+Hardware model: KVM
+Python: 3.12.3
+
+HBLINK3
+-------
+Install path: /opt/hblink3
+Virtual environment: /opt/hblink3/venv
+Main program: /opt/hblink3/hblink.py
+Systemd unit: /etc/systemd/system/hblink3.service
+Process: /opt/hblink3/venv/bin/python /opt/hblink3/hblink.py
+
+HBMONITOR
+---------
+Source path: /opt/hbmonitor-src/HBmonitor
+Virtual environment: /opt/hbmonitor-src/HBmonitor/venv
+Main program: /opt/hbmonitor-src/HBmonitor/monitor.py
+Systemd unit: /etc/systemd/system/hbmonitor.service
+
+SYSTEMD
+-------
+hblink3.service: enabled, active (running)
+hbmonitor.service: enabled, active (running)
+
+HBLINK3 MASTER
+--------------
+Mode: MASTER
+Enabled: True
+Repeat: True
+Max peers: 10
+Bind address: 0.0.0.0
+Port: 62035
+Ping time: 5 seconds
+Max missed: 3
+Group hangtime: 5 seconds
+ACL: enabled; current ACLs permit all
+
+REPORTING
+---------
+Reporting: enabled
+Report interval: 60 seconds
+Report port: 4321
+Report clients: 127.0.0.1
+
+LOGGING
+-------
+Log file: /tmp/hblink.log
+Handlers: console-timed
+Level: DEBUG
+Name: HBlink
+
+NOTES
+-----
+The production hblink.cfg contains a MASTER passphrase. The passphrase is intentionally not stored in this public repository.
+The live server contains historical .bak/.before-* source snapshots; these should be retained on the server or archived separately, not treated as the canonical source tree.
+The Python virtual environment and __pycache__ are not part of the Git backup.
