@@ -1,0 +1,16 @@
+[Unit]
+Description=HBMonitor DMR Dashboard
+After=network-online.target hblink3.service
+Wants=network-online.target
+Requires=hblink3.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/hbmonitor-src/HBmonitor
+ExecStart=/opt/hbmonitor-src/HBmonitor/venv/bin/python /opt/hbmonitor-src/HBmonitor/monitor.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
